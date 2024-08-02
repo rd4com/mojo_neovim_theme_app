@@ -244,6 +244,15 @@ vim.cmd("hi number guifg=#7fffae")
 vim.cmd("hi string guifg=#7fffae")
 vim.cmd("highlight CursorLine guibg=#707070 gui=none")
 vim.cmd("highlight comment guifg=#faf381")
+-- adjust colors
+vim.cmd("hi function guifg=#f8e45c guibg=none")
+vim.cmd("hi type guifg=#62a0ea guibg=none")
+vim.cmd("hi @lsp.type.variable guifg=#5e5c64 guibg=none")
+vim.cmd("hi statement guifg=#57e389 guibg=none")
+vim.cmd("hi identifier guifg=#ffa348 guibg=none")
+vim.cmd("hi string guifg=#33d17a guibg=none")
+vim.cmd("hi number guifg=#33d17a guibg=none")
+vim.cmd("hi normal guifg=#f6f5f4 guibg=#808080")
 ```
 
 &nbsp;
