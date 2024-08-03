@@ -12,6 +12,7 @@ def main():
             "identifier",
             "number",
             "string",
+            "statement",
             #"another_highlight_group",
         )
     )
@@ -55,11 +56,29 @@ def main():
                 selection = 0
         if GUI.Button("➕ Add to theme"):
             if valid_highlight_groups[selection] not in ThemeParts:
+                tmp = pynvim.command_output(
+                    ":hi "+valid_highlight_groups[selection]
+                )
+                tmp = tmp.split(" ")
+                var tmp_fg:String ="#000000"
+                var tmp_bg:String ="#ffffff"
+                var nonebg = True
+                if valid_highlight_groups[selection].lower() == "normal":
+                    nonebg=False
+
+                for e in tmp:
+                    if e.startswith("guifg="): 
+                        tmp_fg = str(e)[6:]
+                        validate_color(tmp_fg)
+                    if e.startswith("guibg="): 
+                        tmp_bg = str(e)[6:]
+                        validate_color(tmp_bg)
+                
                 ThemeParts[valid_highlight_groups[selection]] = ThemePart(
-                    "#ffffff",
-                    "#000000",
+                    tmp_bg,
+                    tmp_fg,
                     "none",
-                    True
+                    nonebg
                 )
                 update_highlight(valid_highlight_groups[selection])
         GUI.RawHtml("</span>")
