@@ -1,6 +1,6 @@
 from ui import *
 from pathlib import Path
-
+from collections import Dict
 var valid_highlight_groups = List[String]()
 
 def main():
